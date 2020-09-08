@@ -8,7 +8,7 @@
 import time
 import unittest
 
-from registry import Registry
+from ZtjRegistry import Registry
 
 
 class TestRegistry(unittest.TestCase):

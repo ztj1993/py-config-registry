@@ -2,12 +2,12 @@
 # Intro: 配置模块
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# Version: 0.0.3
-# Date: 2020-09-01
+# Version: 0.0.4
+# Date: 2020-09-08
 
 import time
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 class Registry(object):
