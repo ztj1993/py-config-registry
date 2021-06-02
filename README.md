@@ -1,86 +1,86 @@
-# Python Registry Package
+# Python Config Registry Package
 
 ### 说明
-这是一个 Python 配置快速调用模块，主要解决 Json or Yaml 深层次配置调用问题。
+这是一个 Python 配置快速注册调用模块，主要解决多维数组深层次配置调用问题。
 
 ### 链接
-- [GitHub](https://github.com/ztj-package/py-registry)
-- [PyPI](https://pypi.org/project/py-ztj-registry)
+- [GitHub](https://github.com/ztj1993/py-config-registry)
+- [PyPI](https://pypi.org/project/config-registry)
 
 ### 安装
 ```
-pip install py-ztj-registry
+pip install config-registry
 ```
 
 ### 设置获取数据
 ```
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry()
+setting = Registry()
 
-registry.set('a', 'a')
-registry.set('b', {'bb': 'bbb'})
-registry.set('c.h', 'h')
+setting.set('a', 'a')
+setting.set('b', {'bb': 'bbb'})
+setting.set('c.h', 'h')
 
-print(registry.get())
-print(registry.get('b.bb'))
+print(setting.get())
+print(setting.get('b.bb'))
 ```
 
 ### 加载字典
 ```
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry()
+setting = ConfigRegistry()
 
-registry.load({'a': {'aa': 'aaa'}})
-print(registry.get('a.aa'))
+setting.load({'a': {'aa': 'aaa'}})
+print(setting.get('a.aa'))
 ```
 
 ### 合并字典
 ```
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry()
+setting = ConfigRegistry()
 
-registry.load({'a': {'a1': 'aaa1'}})
-registry.merge('a', {'a2': 'aaa2' })
-print(registry.get('a'))
+setting.load({'a': {'a1': 'aaa1'}})
+setting.merge('a', {'a2': 'aaa2' })
+print(setting.get('a'))
 ```
 
 ### 设置默认值
 ```
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry()
+setting = ConfigRegistry()
 
-registry.set('a', 'aaa')
-registry.default('a', 'bbb')
-registry.default('c', 'ccc')
-print(registry.get('a'))
-print(registry.get('c'))
+setting.set('a', 'aaa')
+setting.default('a', 'bbb')
+setting.default('c', 'ccc')
+print(setting.get('a'))
+print(setting.get('c'))
 ```
 
 ### 钩子调用
 ```
 import time
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry()
+setting = ConfigRegistry()
 
 def callback():
     print('callback')
 
-registry.set_hook('hook', 3, callback)
+setting.set_hook('hook', 3, callback)
 time.sleep(1)
-registry.refresh_hook('hook')
+setting.refresh_hook('hook')
 time.sleep(3)
-registry.refresh_hook('hook')
+setting.refresh_hook('hook')
 ```
 
 ### 扁平化数据
 ```
-from registry import Registry
+from ConfigRegistry import ConfigRegistry
 
-registry = Registry({'a': {'aa': 'aaa'}, 'b': {'bb': 'bbb'}})
-print(registry.flat())
+setting = ConfigRegistry({'a': {'aa': 'aaa'}, 'b': {'bb': 'bbb'}})
+print(setting.flat())
 ```

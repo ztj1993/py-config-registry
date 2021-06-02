@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-# Intro: 配置模块
+# Intro: 配置注册模块
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# Version: 0.0.4
-# Date: 2020-09-08
+# Version: 1.0.0
+# Date: 2021-06-02
 
 import time
 
-__version__ = '0.0.4'
 
-
-class Registry(object):
+class ConfigRegistry(object):
     """ 配置模块"""
 
     def __init__(self, options=None):
@@ -125,7 +123,7 @@ class Registry(object):
         else:
             return False
 
-    def set_hook(self, key, overtime, callback):
+    def setting_hook(self, key, overtime, callback):
         """设置钩子"""
         self.hooks[key] = dict()
         self.hooks[key]['last_time'] = int(time.time())
