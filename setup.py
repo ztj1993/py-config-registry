@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import os.path
+import pathlib
 
 from setuptools import setup
 
-f = open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf8')
-readme = f.read()
-f.close()
+here = pathlib.Path(__file__).parent.resolve()
+readme = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='config-registry',
